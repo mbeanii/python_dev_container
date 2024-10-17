@@ -14,14 +14,17 @@ RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser dev
 
 RUN chsh -s /bin/bash developer
 
-USER developer
-
 WORKDIR /home/developer
 
-RUN chown -R developer:developer /home/developer/.ssh
+COPY startup.sh /usr/local/bin/startup.sh
+RUN chmod +x /usr/local/bin/startup.sh
 
 EXPOSE 80
 
 ENV NAME World
+
+USER developer
+
+ENTRYPOINT ["/usr/local/bin/startup.sh"]
 
 CMD ["sleep", "infinity"]
