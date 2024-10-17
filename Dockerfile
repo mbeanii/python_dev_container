@@ -10,9 +10,9 @@ RUN apt-get update && apt-get install -y \
     bash \
  && rm -rf /var/lib/apt/lists/*
 
-SHELL ["/bin/bash", "-c"]
-
 RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser developer sudo
+
+RUN chsh -s /bin/bash developer
 
 USER developer
 
