@@ -18,6 +18,8 @@ USER developer
 
 WORKDIR /home/developer
 
+RUN chown -R developer:developer /home/developer/.ssh
+
 EXPOSE 80
 
 ENV NAME World
