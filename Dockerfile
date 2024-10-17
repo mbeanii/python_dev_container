@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     ssh \
     sudo \
     bash \
-    npx \
+    curl \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser developer sudo
