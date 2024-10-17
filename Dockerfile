@@ -23,8 +23,8 @@ EXPOSE 80
 
 ENV NAME World
 
-USER developer
-
 ENTRYPOINT ["/usr/local/bin/startup.sh"]
+
+USER developer
 
 CMD ["sleep", "infinity"]
