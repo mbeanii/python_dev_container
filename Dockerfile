@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser developer sudo
 
+RUN echo "developer ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 RUN chsh -s /bin/bash developer
 
 USER developer
